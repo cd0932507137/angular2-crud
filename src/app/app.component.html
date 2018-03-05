@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <div class="jumbotron">
+    <form [formGroup]="myForm" novalidate (submit)="Add()" class="form-horizontal">
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="">Username</label>
+        <input type="text" class="form-control" formControlName="username">
+      </div>
+      <div class="form-group">
+        <label for="">Email</label>
+        <input type="mail" class="form-control" formControlName="email">
+      </div>
+      <button type="submit" class="btn btn-primary">add</button>
+      <button type="button" class="btn btn-secondary" (click)="Update()">update</button>
+    </form>
+  </div>
+
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let data of DataArray">
+      <td>{{ data.name }}</td>
+      <td>{{ data.username }}</td>
+      <td>{{ data.email }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="Edit(data)"><i class="fas fa-pen-square"></i></button>
+        <button class="btn btn-danger" (click)="Delete(data)"><i class="fas fa-trash-alt"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>
